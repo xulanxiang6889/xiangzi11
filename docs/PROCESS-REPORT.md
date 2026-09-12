@@ -19,7 +19,7 @@ Lumen Hub 是原创个人 AI 资源与知识服务中心，面向中文独立创
 | SEO 基础 | PASS | `src/app/sitemap.ts`、`src/app/robots.ts`、layout metadata |
 | 静态质量 | PASS | `pnpm lint`、`pnpm typecheck` |
 | Production build | PASS | `pnpm build`，15 个路由成功生成 |
-| E2E 与截图 | 未执行 | 尚未建立 Playwright 测试基础设施 |
+| E2E 与截图 | PARTIAL | 已建立 7 条 Playwright 用例与四档截图脚本；Chromium 下载受 CDN 中断，未能执行 |
 | 外部部署 | 未执行 | `DEPLOY_APPROVED=false`，无平台人工确认 |
 
 ## 3. 实际修改路径
@@ -45,14 +45,17 @@ Build 输出显示 15 个页面路由成功生成，包含 `/help/[slug]`、`/ro
 
 ## 5. 未验证项目
 
-- Playwright 页面交互、键盘导航、移动菜单与 404 E2E
-- 375/768/1024/1440 浏览器截图验收
+- Playwright 页面交互、键盘导航、移动菜单与 404 E2E：用例已建立，但 Chromium 196MB 下载被 CDN 连续中断，未执行。
+- 375/768/1024/1440 浏览器截图验收：脚本已建立，等待 Chromium 下载后生成。
 - 真实认证、支付、邮件、数据库和生产环境行为
 - 公开 URL smoke test、HTTPS、域名、OG 图片抓取
+
+对应的人工一次性操作与验收标准已拆分至 `docs/HUMAN-ACTION-CHECKLIST.md`。不应通过手工跳过 Next 补丁升级或自动化测试来关闭风险。
 
 ## 6. 风险
 
 - `next@14.2.15` 已收到安全更新提示，需后续在同一大版本内评估补丁升级。
+- 已查询到 `next@14` 的当前补丁 `14.2.35`；升级下载因 Windows SWC socket timeout 失败，确认未修改 `package.json` 与 lockfile。
 - account/admin/checkout/requests 均为演示流程，不得误用于生产。
 - `sitemap` 当前使用本地演示域名 `https://lumen-hub.local`，正式部署前必须替换为已确认域名。
 
