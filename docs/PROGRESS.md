@@ -11,3 +11,4 @@
 - Phase E：已补齐帮助详情、sitemap、robots、README、DEPLOYMENT，并完成首次 Git baseline commit。
 - Phase F：未执行 Playwright 与截图；前置 build 受 SWC 网络阻塞。
 - 部署：未执行。`DEPLOY_APPROVED=false`，且未配置/确认外部平台。
+- 2026-09-12 追加：SWC 下载恢复；`pnpm lint`、`pnpm typecheck`、`pnpm build` 全部通过。详见 `docs/PROCESS-REPORT.md`。
