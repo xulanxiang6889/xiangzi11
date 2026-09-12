@@ -1,0 +1,43 @@
+:root {
+  --color-canvas: #f5f7f8;
+  --color-surface: #ffffff;
+  --color-surface-muted: #e9eef0;
+  --color-ink: #172126;
+  --color-ink-muted: #5d6b71;
+  --color-line: #d4dde0;
+  --color-accent: #087f78;
+  --color-accent-strong: #075c58;
+  --color-accent-soft: #d9f0ed;
+  --font-sans: Geist, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-md: 1rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.75rem;
+  --text-display: clamp(2.75rem, 7vw, 6.5rem);
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-24: 6rem;
+  --radius-sm: 0.5rem;
+  --radius-md: 1rem;
+  --radius-lg: 1.5rem;
+  --shadow-soft: 0 1rem 3rem rgba(23, 33, 38, 0.08);
+  --shadow-focus: 0 0 0 0.2rem rgba(8, 127, 120, 0.28);
+  --motion-fast: 140ms;
+  --motion-standard: 220ms;
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  :root { --color-surface: #ffffff; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}
+

@@ -1,0 +1,1 @@
+import Link from "next/link"; export default function Checkout(){return <div className="wrap page narrow-page"><p className="eyebrow">CHECKOUT</p><h1>订单意向确认。</h1><p className="lede">这是本地演示流程，不会扣款，也不会连接支付平台。</p><div className="notice">选择资源后，我们只记录你的意向与当前状态。</div><Link className="button" href="/requests">提交咨询请求</Link></div>}

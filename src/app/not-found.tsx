@@ -1,0 +1,1 @@
+import Link from "next/link"; export default function NotFound(){return <div className="wrap page"><p className="eyebrow">404</p><h1>这页还没有准备好。</h1><Link className="text-link" href="/">回到首页 →</Link></div>}
