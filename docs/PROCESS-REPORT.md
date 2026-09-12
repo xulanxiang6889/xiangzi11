@@ -43,6 +43,8 @@ pnpm build                                                               -> PASS
 
 Build 输出显示 15 个页面路由成功生成，包含 `/help/[slug]`、`/robots.txt` 与 `/sitemap.xml`。
 
+本地 production server 已在 `http://localhost:3100` 启动，并通过 HTTP smoke check：核心页面返回 `200`，随机未知路径返回 `404`。首页已在 Codex in-app browser 中真实打开并可视化查看。
+
 ## 5. 未验证项目
 
 - Playwright 页面交互、键盘导航、移动菜单与 404 E2E：用例已建立，但 Chromium 196MB 下载被 CDN 连续中断，未执行。
