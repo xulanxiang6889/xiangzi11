@@ -15,3 +15,10 @@
 - 2026-09-12 风险推进：安全补丁与 Playwright 依赖安装均受 registry/SWC 超时中断，项目未发生半升级；人工授权、公开合规与浏览器验收步骤见 `docs/HUMAN-ACTION-CHECKLIST.md`。
 - 2026-09-12 自动化推进：已加入 7 条 Playwright E2E 与四档截图脚本；Chromium 下载两次收到 CDN `server closed connection`，尚未运行测试。当前 `next lint`、`tsc --noEmit`、`next build` 仍通过。
 - 2026-09-12 可视化验收：production server 在 `http://localhost:3100` 就绪；核心路由 HTTP smoke check 全部符合预期（200/404），首页已通过 Codex 浏览器真实渲染查看。
+- 2026-09-12 动效/无障碍：增加 reduced-motion 可降级的首页动效和咨询状态实时播报；`pnpm lint`、`pnpm typecheck`、`pnpm build` 均通过。Chromium 下载仍被 CDN 中断，E2E/四档截图保持未验证。
+
+## 2026-09-14
+
+- 部署推进复核：`pnpm lint`、`pnpm typecheck`、`pnpm build` 全部 PASS；本地 production HTTP smoke PASS。
+- 外部部署保持 BLOCKED：`DEPLOY_APPROVED=false`、Git remote 未配置、`vercel`/`wrangler` CLI 不存在。
+- Chromium CDN 下载仍失败，Playwright E2E 与 375/768/1024/1440 四档截图未验证。

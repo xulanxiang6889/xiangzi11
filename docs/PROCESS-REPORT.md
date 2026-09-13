@@ -68,3 +68,21 @@ Build 输出显示 15 个页面路由成功生成，包含 `/help/[slug]`、`/ro
 ## 8. 下一步
 
 建立最小 Playwright 测试与四档截图验收；完成后，如需上线，先将部署目标、仓库、分支、域名和环境变量名提交人工确认，并显式将 `DEPLOY_APPROVED` 改为 `true`。
+
+## 9. 2026-09-12 动效与 Bug 修复复核
+
+- 首页增加进入、几何标记旋转/呼吸、功能区阶梯进入与按钮反馈动效。
+- 动效仅使用 CSS `transform` / `opacity`；`prefers-reduced-motion: reduce` 下全部关闭。
+- 咨询提交结果增加 `role="status"` 与 `aria-live="polite"`。
+- `pnpm lint`、`pnpm typecheck`、`pnpm build`：PASS。
+- Chromium 安装：PARTIAL；官方下载在 10%-40% 反复出现 `server closed connection`，故 Playwright E2E 与四档截图未执行。
+
+## 2026-09-14 部署推进复核
+
+- `pnpm lint`：PASS（0 warnings/errors）
+- `pnpm typecheck`：PASS
+- `pnpm build`：PASS（15 routes）
+- 本地 production HTTP smoke：PASS（核心路由返回 200，未知路由返回 404）
+- `vercel` / `wrangler` CLI：NOT_FOUND；Git remote：未配置
+- 外部部署：BLOCKED。当前 `DEPLOY_APPROVED=false`，且未提供平台、仓库、生产分支和平台连接证据。
+- Chromium 下载仍失败，因此 Playwright E2E 与四档截图保持未验证。

@@ -1,5 +1,6 @@
 import "../styles/tokens.css";
 import "../styles/globals.css";
+import "../styles/motion.css";
 import Link from "next/link";
 
 export const metadata = { title: "Lumen Hub", description: "把 AI 工具、方法与服务整理成可直接使用的系统" };
