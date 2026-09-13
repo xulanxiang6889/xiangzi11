@@ -24,3 +24,4 @@
 - Chromium CDN 下载仍失败，Playwright E2E 与 375/768/1024/1440 四档截图未验证。
 
 - 2026-09-14 推送复核：目标 GitHub 仓库可读，但 `git push` 因当前账号 `xulanxiang6889` 对 `xulanxiang902-glitch/xiangzi` 返回 403；远程未修改。Vercel CLI/连接器不可用，部署保持 BLOCKED。
+- 2026-09-14 更新仓库：已成功推送至 `xulanxiang6889/xiangzi11/main`；Vercel CLI 可用但无 credentials，生产部署待 `vercel login`。

@@ -93,3 +93,10 @@ Build 输出显示 15 个页面路由成功生成，包含 `/help/[slug]`、`/ro
 - 本地发布提交已生成，但 `git push` 返回 403；当前 GitHub CLI 身份为 `xulanxiang6889`，与目标仓库 owner 不匹配。
 - Vercel CLI/连接器未发现，因此未执行 Vercel 部署。
 - 远程仓库、域名和生产环境保持未修改。
+
+## 11. 2026-09-14 新仓库推送与 Vercel
+
+- GitHub `xulanxiang6889/xiangzi11`：PASS，`main` 已推送并确认远程 HEAD 为 `c3d5657273e1524f458370912adb0b84032078fe`。
+- Vercel CLI：`pnpm dlx vercel --version` PASS（59.16.0）。
+- `pnpm dlx vercel --prod --yes`：BLOCKED，未找到 Vercel credentials。
+- 未执行临时部署、未写入环境变量、未绑定域名。
