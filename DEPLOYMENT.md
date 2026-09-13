@@ -12,3 +12,10 @@
 - 本地 production HTTP smoke：PASS（核心路由 200，未知路由 404）
 - `vercel` / `wrangler` CLI：NOT_FOUND；Git remote：未配置
 - 结论：本地可发布包已验证；外部部署为 `BLOCKED`，原因是 `DEPLOY_APPROVED=false`、无远程仓库和无平台连接证据。
+
+## 2026-09-14 GitHub 推送复核
+
+- 已配置目标 remote：`https://github.com/xulanxiang902-glitch/xiangzi.git`
+- 远程仓库可读，默认分支为 `main`；本地提交已生成。
+- `git push -u origin main`：BLOCKED，GitHub 返回 `403 Permission denied`；当前 CLI 登录账号为 `xulanxiang6889`，目标仓库 owner 为 `xulanxiang902-glitch`。
+- 未执行强制推送、仓库覆盖或绕过权限操作；远程仓库内容未被修改。

@@ -86,3 +86,10 @@ Build 输出显示 15 个页面路由成功生成，包含 `/help/[slug]`、`/ro
 - `vercel` / `wrangler` CLI：NOT_FOUND；Git remote：未配置
 - 外部部署：BLOCKED。当前 `DEPLOY_APPROVED=false`，且未提供平台、仓库、生产分支和平台连接证据。
 - Chromium 下载仍失败，因此 Playwright E2E 与四档截图保持未验证。
+
+## 10. 2026-09-14 外部推送复核
+
+- GitHub 仓库 `xulanxiang902-glitch/xiangzi` 可读，默认分支 `main`。
+- 本地发布提交已生成，但 `git push` 返回 403；当前 GitHub CLI 身份为 `xulanxiang6889`，与目标仓库 owner 不匹配。
+- Vercel CLI/连接器未发现，因此未执行 Vercel 部署。
+- 远程仓库、域名和生产环境保持未修改。
