@@ -1,4 +1,5 @@
 export type KnowledgeResource = {
+  slug: string;
   title: string;
   summary: string;
   category: string;
@@ -6,7 +7,7 @@ export type KnowledgeResource = {
   source: string;
 };
 
-export const knowledgeResources: KnowledgeResource[] = [
+const rawKnowledgeResources = [
   { title: "第一原理思维系统", summary: "用解构、质询、重构三阶段拆解复杂问题，并落到一个可执行的第一步。", category: "方法", kind: "教程", source: "Obsidian · 提示词与模板" },
   { title: "Skill 使用教程", summary: "按任务类型选择 brainstorming、create-plan、debugging 等能力，避免重复试错。", category: "方法", kind: "指南", source: "Obsidian · 提示词与模板" },
   { title: "知识库四层架构", summary: "把原始素材、提炼笔记、主题知识与可复用资产分层管理。", category: "知识管理", kind: "方法", source: "Obsidian · 规则模板" },
@@ -38,4 +39,7 @@ export const knowledgeResources: KnowledgeResource[] = [
   { title: "工作流地图", summary: "把模糊需求拆成输入、决策、执行、验证和交付节点。", category: "方法", kind: "模板", source: "Obsidian · AIOS" },
   { title: "上下文预算方法", summary: "长任务采用增量读取、摘要和边界控制，降低噪音与重复成本。", category: "方法", kind: "方法", source: "Obsidian · 提示词与模板" },
   { title: "公开资源合规清单", summary: "发布前检查版权、隐私、凭据、外链素材和误导性安全声明。", category: "安全", kind: "清单", source: "Obsidian · AIOS" },
-];
+] as Omit<KnowledgeResource, "slug">[];
+
+export const knowledgeResources: KnowledgeResource[] = rawKnowledgeResources.map((resource, index) => ({ ...resource, slug: `resource-${String(index + 1).padStart(2, "0")}` }));
+export function getKnowledgeResource(slug: string) { return knowledgeResources.find((resource) => resource.slug === slug); }

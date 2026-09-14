@@ -38,3 +38,9 @@
 - 远程 `main` HEAD：`c3d5657273e1524f458370912adb0b84032078fe`
 - Vercel CLI：可通过 `pnpm dlx vercel` 使用（版本 `59.16.0`），但部署命令返回 `No existing credentials found`。
 - 外部 Vercel 部署：BLOCKED，待在本机执行 `vercel login` 完成账号授权后再部署。
+### 2026-09-14 资源详情页与 E2E 更新
+
+- 新增资源详情路由：`/explore/resource-01/` 至 `/explore/resource-32/`
+- Cloudflare Pages 部署：`https://0028c63e.lumen-hub-exv.pages.dev`
+- 本地验证：`pnpm lint`、`pnpm typecheck`、`pnpm build`、`pnpm test:e2e`（9/9）
+- 线上 smoke test：主页、Explore、详情页、robots、sitemap 均 200；未知详情路径 404。

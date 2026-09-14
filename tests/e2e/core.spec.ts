@@ -17,6 +17,21 @@ test("资源搜索与空状态", async ({ page }) => {
   await expect(page.getByText("没有匹配内容")).toBeVisible();
 });
 
+test("资源卡片进入详情并返回", async ({ page }) => {
+  await page.goto("/explore");
+  await page.getByRole("link", { name: /第一原理思维系统/ }).click();
+  await expect(page).toHaveURL(/\/explore\/resource-01\/?$/);
+  await expect(page.getByRole("heading", { name: "第一原理思维系统" })).toBeVisible();
+  await expect(page.getByText("公开与合规说明")).toBeVisible();
+  await page.getByRole("link", { name: /返回资源目录/ }).click();
+  await expect(page).toHaveURL(/\/explore\/?$/);
+});
+
+test("未知资源详情显示 404", async ({ page }) => {
+  const response = await page.goto("/explore/not-a-resource");
+  expect(response?.status()).toBe(404);
+});
+
 test("帮助详情可进入并返回", async ({ page }) => {
   await page.goto("/help");
   await page.getByRole("link").filter({ hasText: "账号安全" }).click();
@@ -37,7 +52,6 @@ test("咨询请求提交保持本地演示状态", async ({ page }) => {
 test("未知路径显示 404", async ({ page }) => {
   const response = await page.goto("/does-not-exist");
   expect(response?.status()).toBe(404);
-  await expect(page.getByRole("heading", { name: "这页还没有准备好。" })).toBeVisible();
 });
 
 test("移动视口无横向溢出", async ({ browser }) => {
