@@ -2,7 +2,7 @@ import { test, expect } from "@playwright/test";
 
 test("首页导航到资源目录", async ({ page }) => {
   await page.goto("/");
-  await expect(page.getByRole("heading", { name: /让每一次尝试/ })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "AI 工作流落地系统。" })).toBeVisible();
   await page.getByRole("link", { name: "开始探索" }).click();
   await expect(page).toHaveURL(/\/explore$/);
   await expect(page.getByRole("heading", { name: "找到下一步。" })).toBeVisible();
@@ -22,9 +22,18 @@ test("资源卡片进入详情并返回", async ({ page }) => {
   await page.getByRole("link", { name: /第一原理思维系统/ }).click();
   await expect(page).toHaveURL(/\/explore\/resource-01\/?$/);
   await expect(page.getByRole("heading", { name: "第一原理思维系统" })).toBeVisible();
+  for (const heading of ["适用场景", "输入", "步骤", "输出", "验证标准"]) await expect(page.getByRole("heading", { name: heading })).toBeVisible();
   await expect(page.getByText("公开与合规说明")).toBeVisible();
   await page.getByRole("link", { name: /返回资源目录/ }).click();
   await expect(page).toHaveURL(/\/explore\/?$/);
+});
+
+test("旗舰专题可访问且分类可筛选", async ({ page }) => {
+  await page.goto("/explore");
+  await page.getByRole("combobox", { name: "按类别筛选" }).selectOption({ label: "内容创作" });
+  await expect(page.getByRole("link", { name: /口播视频从选题到发布工作流/ })).toBeVisible();
+  await page.getByRole("link", { name: /口播视频从选题到发布工作流/ }).click();
+  await expect(page).toHaveURL(/\/explore\/resource-32\/?$/);
 });
 
 test("未知资源详情显示 404", async ({ page }) => {
@@ -68,3 +77,4 @@ test("关键视口截图", async ({ page }) => {
     await page.screenshot({ path: `test-results/home-${width}.png`, fullPage: true });
   }
 });
+

@@ -39,7 +39,9 @@ const rawKnowledgeResources = [
   { title: "工作流地图", summary: "把模糊需求拆成输入、决策、执行、验证和交付节点。", category: "方法", kind: "模板", source: "Obsidian · AIOS" },
   { title: "上下文预算方法", summary: "长任务采用增量读取、摘要和边界控制，降低噪音与重复成本。", category: "方法", kind: "方法", source: "Obsidian · 提示词与模板" },
   { title: "公开资源合规清单", summary: "发布前检查版权、隐私、凭据、外链素材和误导性安全声明。", category: "安全", kind: "清单", source: "Obsidian · AIOS" },
+  { title: "口播视频从选题到发布工作流", summary: "用一套可复用流程完成选题、脚本、分镜、配音字幕、发布与复盘。", category: "内容工作流", kind: "旗舰专题", source: "Obsidian · 视频口播工作流" },
 ] as Omit<KnowledgeResource, "slug">[];
 
-export const knowledgeResources: KnowledgeResource[] = rawKnowledgeResources.map((resource, index) => ({ ...resource, slug: `resource-${String(index + 1).padStart(2, "0")}` }));
+const categoryMap: Record<string, string> = { "内容工作流": "内容创作", "知识管理": "知识管理", "方法": "AI 协作", "提示词": "AI 协作", "工程": "自动化交付", "安全": "自动化交付" };
+export const knowledgeResources: KnowledgeResource[] = rawKnowledgeResources.map((resource, index) => ({ ...resource, category: categoryMap[resource.category] ?? resource.category, slug: `resource-${String(index + 1).padStart(2, "0")}` }));
 export function getKnowledgeResource(slug: string) { return knowledgeResources.find((resource) => resource.slug === slug); }

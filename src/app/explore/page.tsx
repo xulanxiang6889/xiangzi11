@@ -2,7 +2,7 @@
 import { useMemo, useState } from "react";
 import Link from "next/link";
 import { knowledgeResources } from "../../content/knowledge";
-const categories = ["全部", "方法", "提示词", "知识管理", "内容工作流", "工程", "安全"];
+const categories = ["全部", "内容创作", "知识管理", "AI 协作", "自动化交付"];
 export default function Explore() {
   const [q, setQ] = useState(""); const [cat, setCat] = useState("全部");
   const shown = useMemo(() => knowledgeResources.filter((x) => (cat === "全部" || x.category === cat) && [x.title, x.summary, x.category, x.kind].join("").toLowerCase().includes(q.toLowerCase())), [q, cat]);
