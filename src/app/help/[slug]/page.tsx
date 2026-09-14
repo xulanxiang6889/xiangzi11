@@ -7,6 +7,10 @@ const guides: Record<string, { title: string; body: string }> = {
   "联系支持": { title: "联系支持", body: "你可以通过咨询请求描述目标、背景和期望结果。请不要提交密码、Token、Cookie 或其他敏感凭据。" }
 };
 
+export function generateStaticParams() {
+  return Object.keys(guides).map((slug) => ({ slug }));
+}
+
 export default function HelpDetail({ params }: { params: { slug: string } }) {
   const guide = guides[decodeURIComponent(params.slug)];
   if (!guide) return <div className="wrap page"><p className="eyebrow">HELP CENTER</p><h1>找不到这篇指南。</h1><Link className="text-link" href="/help">返回帮助中心 →</Link></div>;

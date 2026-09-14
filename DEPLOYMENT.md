@@ -2,6 +2,17 @@
 
 当前部署门禁为 `DEPLOY_APPROVED=false`，未执行 push、部署、域名绑定或外部环境变量写入。
 
+## 2026-09-14 Cloudflare Pages 部署
+
+- Cloudflare 账号认证：PASS（Wrangler OAuth Device Authorization）
+- Pages 项目：`lumen-hub`
+- 生产 URL：https://lumen-hub-exv.pages.dev/
+- 部署 URL：https://3204d5ce.lumen-hub-exv.pages.dev
+- 构建方式：Next.js 静态导出（`output: export`）上传 `out/`
+- 首页、Explore、帮助详情、robots、sitemap：HTTP 200
+- 未知路径：HTTP 404
+- 回滚方式：重新部署上一份已验证的 `out/`，或在 Cloudflare Pages 控制台选择历史部署回滚
+
 上线前需先配置正规商家/认证服务，并人工确认目标平台、仓库、分支和环境变量名称。部署失败时回滚到最近一次通过 build 与 smoke test 的 commit。
 
 ## 2026-09-14 部署推进复核
